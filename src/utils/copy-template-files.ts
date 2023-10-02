@@ -1,5 +1,6 @@
-import { promisify } from 'util';
 import path from 'path';
+import { promisify } from 'util';
+
 import ncp from 'ncp';
 
 const copy = promisify(ncp);

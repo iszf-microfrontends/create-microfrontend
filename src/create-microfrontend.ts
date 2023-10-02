@@ -1,10 +1,13 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { Listr } from 'listr2';
+
 import chalk from 'chalk';
-import type { Options } from './types';
-import { copyPackageJson, copyTemplateFiles, installDeps, initGit, createFileByTemplate } from './utils';
+import { Listr } from 'listr2';
+
 import { gitIgnoreTemplate } from './file-templates';
+import { copyPackageJson, copyTemplateFiles, installDeps, initGit, createFileByTemplate } from './utils';
+
+import type { Options } from './types';
 
 export const createMicrofrontend = async (options: Options) => {
   const currentFileUrl = import.meta.url;

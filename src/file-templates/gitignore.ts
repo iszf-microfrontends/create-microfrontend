@@ -1,1 +1,1 @@
-export const gitIgnoreTemplate = () => `node_modules/\ndist/\n\n.env`;
+export const gitIgnoreTemplate = () => ['.vscode/', 'node_modules/', 'dist/', 'coverage/', '', '.env'].join('\n');

@@ -1,6 +1,8 @@
-import yargs from 'yargs';
 import chalk from 'chalk';
+import yargs from 'yargs';
+
 import { templates } from '../types';
+
 import type { Argv, RawOptions, Template } from '../types';
 
 const checkTemplateValidity = (template: any): template is Template => typeof template === 'undefined' || templates.includes(template);

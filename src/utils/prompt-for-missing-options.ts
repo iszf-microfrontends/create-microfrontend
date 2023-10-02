@@ -1,8 +1,11 @@
-import inquirer from 'inquirer';
 import { existsSync, statSync } from 'fs';
-import type { Options, RawOptions } from '../types';
-import { templates } from '../types';
 import path from 'path';
+
+import inquirer from 'inquirer';
+
+import { templates } from '../types';
+
+import type { Options, RawOptions } from '../types';
 
 const defaultOptions: Options = {
   git: false,
