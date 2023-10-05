@@ -4,15 +4,15 @@ export type Argv = string[];
 
 export type Template = (typeof templates)[number];
 
-export type RawOptions = {
+export interface RawOptions {
   skipPrompts: boolean;
   git: boolean;
   install: boolean;
   targetDir?: string;
   template?: Template;
-};
+}
 
-export type Options = Omit<RawOptions, 'skipPrompts'> & {
+export interface Options extends Omit<RawOptions, 'skipPrompts'> {
   template: Template;
   targetDir: string;
-};
+}

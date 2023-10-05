@@ -3,9 +3,7 @@ import path from 'path';
 
 import inquirer from 'inquirer';
 
-import { templates } from '../types';
-
-import type { Options, RawOptions } from '../types';
+import { templates, type Options, type RawOptions } from '../types';
 
 const defaultOptions: Options = {
   git: false,
@@ -79,9 +77,9 @@ export const promptForMissingOptions = async (rawOptions: RawOptions): Promise<O
   const answers = await inquirer.prompt(questions);
 
   return {
-    targetDir: options.targetDir || answers.targetDir,
+    targetDir: options.targetDir ?? answers.targetDir,
     git: options.git || answers.git,
     install: options.install || answers.install,
-    template: options.template || answers.template,
+    template: options.template ?? answers.template,
   };
 };

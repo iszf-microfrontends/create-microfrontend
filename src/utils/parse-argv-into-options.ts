@@ -1,9 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { templates } from '../types';
-
-import type { Argv, RawOptions, Template } from '../types';
+import { templates, type Argv, type RawOptions, type Template } from '../types';
 
 const checkTemplateValidity = (template: any): template is Template => typeof template === 'undefined' || templates.includes(template);
 
@@ -33,7 +31,7 @@ export const parseArgvIntoOptions = async (argv: Argv): Promise<RawOptions> => {
     })
     .parse();
 
-  const template = options.template && options.template.toLowerCase();
+  const template = options.template?.toLowerCase();
   const isTemplateValid = checkTemplateValidity(template);
   if (!isTemplateValid) {
     console.log(
@@ -44,9 +42,9 @@ export const parseArgvIntoOptions = async (argv: Argv): Promise<RawOptions> => {
 
   return {
     targetDir: typeof options._[0] === 'undefined' ? options._[0] : `${options._[0]}`,
-    skipPrompts: options.yes || false,
-    git: options.git || false,
-    install: options.install || false,
+    skipPrompts: options.yes ?? false,
+    git: options.git ?? false,
+    install: options.install ?? false,
     template: isTemplateValid ? template : undefined,
   };
 };

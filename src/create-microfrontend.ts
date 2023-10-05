@@ -5,11 +5,10 @@ import chalk from 'chalk';
 import { Listr } from 'listr2';
 
 import { gitIgnoreTemplate } from './file-templates';
+import { type Options } from './types';
 import { copyPackageJson, copyTemplateFiles, installDeps, initGit, createFileByTemplate } from './utils';
 
-import type { Options } from './types';
-
-export const createMicrofrontend = async (options: Options) => {
+export const createMicrofrontend = async (options: Options): Promise<void> => {
   const currentFileUrl = import.meta.url;
   const templateDir = path.resolve(decodeURI(fileURLToPath(currentFileUrl)), '../../templates', options.template.toLowerCase());
 
@@ -24,17 +23,17 @@ export const createMicrofrontend = async (options: Options) => {
       },
       {
         title: 'Create other config files',
-        task: () => createFileByTemplate(gitIgnoreTemplate, {}, options.targetDir, '.gitignore'),
+        task: async () => createFileByTemplate(gitIgnoreTemplate, {}, options.targetDir, '.gitignore'),
       },
       {
         title: 'Initialize git',
-        task: () => initGit(options.targetDir),
+        task: async () => initGit(options.targetDir),
         enabled: options.git,
       },
       {
         title: 'Install dependencies',
-        task: () => installDeps(options.targetDir),
-        skip: () => (options.install ? false : 'Pass --install or -i to automatically install dependencies'),
+        task: async () => installDeps(options.targetDir),
+        skip: options.install ? false : 'Pass --install or -i to automatically install dependencies',
       },
     ],
     { concurrent: false, exitOnError: true },

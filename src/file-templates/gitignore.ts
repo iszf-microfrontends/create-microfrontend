@@ -1,1 +1,1 @@
-export const gitIgnoreTemplate = () => ['.vscode/', 'node_modules/', 'dist/', 'coverage/', '', '.env'].join('\n');
+export const gitIgnoreTemplate = (): string => ['.vscode/', 'node_modules/', 'dist/', '', '.env'].join('\n');

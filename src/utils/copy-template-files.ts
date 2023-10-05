@@ -5,7 +5,7 @@ import ncp from 'ncp';
 
 const copy = promisify(ncp);
 
-export const copyTemplateFiles = async (templateDir: string, targetDir: string) => {
+export const copyTemplateFiles = async (templateDir: string, targetDir: string): Promise<void> => {
   try {
     await copy(templateDir, targetDir, {
       clobber: false,

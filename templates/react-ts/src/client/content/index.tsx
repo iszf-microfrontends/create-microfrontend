@@ -1,5 +1,5 @@
 import { Title } from '@mantine/core';
 
-const Content = () => <Title>Hello world!</Title>;
+const Content = (): JSX.Element => <Title>Hello world!</Title>;
 
 export default Content;
