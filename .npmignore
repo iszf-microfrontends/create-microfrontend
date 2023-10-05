@@ -7,3 +7,5 @@ src/
 .prettierrc
 rollup.config.js
 tsconfig.json
+
+!templates/**/tsconfig.json
