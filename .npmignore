@@ -9,3 +9,4 @@ rollup.config.js
 tsconfig.json
 
 !templates/**/tsconfig.json
+!templates/**/.prettierrc

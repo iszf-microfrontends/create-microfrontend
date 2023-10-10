@@ -1,5 +1,5 @@
 module.exports = {
   root: true,
   extends: ['@iszf-microfrontends/eslint-config/base'],
-  ignorePatterns: ['bin', 'templates', 'rollup.config.js'],
+  ignorePatterns: ['bin', 'dist', 'templates', 'rollup.config.js', '.eslintrc.cjs'],
 };
