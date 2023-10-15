@@ -1,4 +1,5 @@
-export const gitIgnoreTemplate = (): string => `logs
+export const gitIgnoreTemplate = (): string => `# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -10,12 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-coverage
 
-.env
-.env.*
-!.env.sample
-
+# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -24,4 +21,9 @@ coverage
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?`;
+*.sw?
+
+.env
+.env.*
+!.env.sample
+`;

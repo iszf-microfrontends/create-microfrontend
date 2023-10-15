@@ -1,6 +1,6 @@
 import { Box, MantineProvider } from '@mantine/core';
 
-import Content from '~client/content';
+import Content from '~/content';
 
 export const App = (): JSX.Element => (
   <MantineProvider withNormalizeCSS>
