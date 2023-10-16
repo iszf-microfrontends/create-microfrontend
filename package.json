@@ -1,7 +1,7 @@
 {
   "name": "@iszf-microfrontends/create-microfrontend",
   "version": "0.0.4",
-  "description": "Cli command to create microfrontend",
+  "description": "CLI to create microfrontend",
   "main": "./dist/cli.js",
   "type": "module",
   "bin": {
